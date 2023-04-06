@@ -85,7 +85,7 @@ router.post("/login", (req, res) => {
       if (passwordCorrect) {
         const { _id, email, firstName, lastName } = foundUser;
         const payload = { _id, email };
-        const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
+        const authToken = jwt.sign(payload, 'MyAwesomeSuperSecret', {
           algorithm: "HS256",
           expiresIn: "6h",
         });
